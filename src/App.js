@@ -1,47 +1,28 @@
-import Main from "./components/Main";
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { withAuth0 } from "@auth0/auth0-react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-// import axios from "axios";
-
-
+import Main from "./components/Main";
+// import Footer from "./components/Footer";
+// import Header from "./components/Header";
 
 class App extends React.Component {
-  
   constructor(props) {
     super(props);
     this.state = {
-      user: null,
       parksDisplay: []
     };
   }  
 
-
-
   render () {
-
-
-  return (
+    return (
       <>
-        <Router>
-          <Header/>
-            <Switch>
-            < Route exact path="">
-              {/* <LoginButton /> */}
-                <Main user={this.state.user} />
-               </Route>
-               <Route path="">
-              {/* <Profile/> */}
-             </Route>
-           </Switch>
-         <Footer/>
-      </Router>
-    </>  
-  );
+        {/* Might render a <Header /> here. */}
+        <Main  />  
+        {/* Might render a <Footer /> here */}
+      </>  
+    );
   }
 }
-export default App;
+export default withAuth0(App);
 
 
