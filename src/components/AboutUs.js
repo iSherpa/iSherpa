@@ -31,29 +31,6 @@ export default class AboutUs extends Component {
     
   }
   
-  // displayAuthor() {
-
-  //   const authorsArray= [];
-
-  //    function author(name, favorites, id)   {
-  //     this.name = name;
-  //     this.favorites = favorites;
-  //     this.id = id;
-  //     // this.parkImg = parkImg;
-      
-  //    };
-     
-  //    authorsArray.push(new author ('Valton Jones' , 'Grand Canyon', 13));
-  //    authorsArray.push(new author ('Jacob Gregor' , 'favorite park of Jacob', 7));
-  //    authorsArray.push(new author ('Dario V' , 'favorite park of Dario', 11));
-  //    authorsArray.push( new author ('Brian Kasprzyk' , 'Olympic', 19));
-     
-  //   this.setState({authorsArray : authorsArray});
-  //   }
-    // console.log(authorsArray);
-    // [show, setShow] = useState(false);
-    // handleClose = () => setShow(false);
-    // handleShow = () => setShow(true);
   
     handleShow = (id) => {
       const selectedOne = this.state.authorsArray.find(author => id === author.id)
@@ -61,17 +38,13 @@ export default class AboutUs extends Component {
       console.log(this.state.authorsArray);
       this.setState({selectedAuthor:selectedOne});
       this.setState({selected: true })
-      // console.log(this.selectedAuthor);
+      
     }
     handleHide = () => {
       this.setState({selected: false, selectedAuthor: {}})
       
     }
-    // handleChange = ( author) => {
-      // this.setState({selectedAuthor: author})
-    // }
-
-    // <SelectedBeastModal beast={this.state.selectedBeast} handleHide={this.handleHide} show={this.state.selected}/>
+   
 
   render() {
     return (
