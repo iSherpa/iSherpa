@@ -1,6 +1,6 @@
 import { Component } from "react";
+import { withAuth0 } from "@auth0/auth0-react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import { withAuth0 } from "@auth0/auth0-react";
 import Header from './Header'
 import NationalParks from "./NationalParks";
 import SavedActivities from "./SavedActivities";
@@ -13,31 +13,26 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: false,
       parksDisplay: []
     };
   }
 
   // Remove this handler when Auth0 is setup and working.
-  handleUser = () =>{
-    this.setState({
-      user: true
-    })
-  }
 
   render() {
     console.log(this.state);
+    console.log(this.props.auth0.user)
     return (
       <>
         <Router>
           <Header />
           <Switch>
             {/* Main Route -> User to National Parks DB Search */}
-            <Route exact path="/"> {this.state.user === true ? ( <NationalParks /> ) : ( <Login handleUser={this.handleUser} />)} </Route>
+            <Route exact path="/"> {this.props.auth0.isAuthenticated ? ( <NationalParks /> ) : ( <Login />)} </Route>
             {/* Route User to Saved Parks */}
-            <Route path="/Profile">{this.state.user === true ?( <SavedActivities /> ):( <Login handleUser={this.handleUser} />)} </Route>
+            <Route path="/Profile">{this.props.auth0.isAuthenticated ?( <SavedActivities /> ):( <Login />)} </Route>
             {/* Route User to AboutUs page */}
-            <Route path="/">{this.state.user === true ? <AboutUs /> : <Login handleUser={this.handleUser} />} </Route>
+            <Route path="/">{this.props.auth0.isAuthenticated ? <AboutUs /> : <Login />} </Route>
             {/* Route to Update Books */}
             {/* <Route path="/"> {this.props.auth0.isAuthenticated ? <UpdateBooks /> : <Login />} </Route>
             {/* Route to Profile */}
@@ -49,7 +44,6 @@ class Main extends Component {
     )
   }
   }
-  export default Main;
+  export default withAuth0(Main);
 
-  // this.props.auth0.isAuthenticated -> Put this back as a conditional once Auth0 is working... 
   

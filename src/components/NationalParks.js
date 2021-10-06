@@ -17,7 +17,6 @@ export default class NationalParks extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'j@me.com',
       parkData: undefined
     };
   }  

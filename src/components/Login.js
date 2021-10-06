@@ -13,7 +13,7 @@ class Login extends Component{
           <Card.Text>
             Please login below.
           </Card.Text>
-          <LoginButton handleUser={this.props.handleUser}/>
+          <LoginButton />
         </Card.Body>
       </Card>
     )
