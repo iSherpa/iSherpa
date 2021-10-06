@@ -2,6 +2,7 @@ import { Component } from "react";
 import Card from 'react-bootstrap/Card'
 import LoginButton from './buttons/LoginButton'
 
+
 class Login extends Component{
 
   render(){
@@ -12,7 +13,7 @@ class Login extends Component{
           <Card.Text>
             Please login below.
           </Card.Text>
-          <LoginButton handleUser={this.props.handleUser}/>
+          <LoginButton />
         </Card.Body>
       </Card>
     )
