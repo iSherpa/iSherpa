@@ -3,6 +3,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
+import DeleteButton from './buttons/DeleteButton'
 let server = `${process.env.REACT_APP_API}/my-parks`
 
 class SavedActivities extends Component{
@@ -64,7 +65,7 @@ class SavedActivities extends Component{
                 <Card.Text>Phonenumber: {park.contactsPhone}</Card.Text>
                 </>
                 {/* UpdateButton */}
-                {/* DeleteButton */}
+                <DeleteButton parkData={park} />
               </Card.Body>
             </Card>
             </>
