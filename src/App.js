@@ -11,13 +11,11 @@ class App extends React.Component {
       
     };
   }  
-
+  
   render () {
     return (
       <>
-        {/* Might render a <Header /> here. */}
         <Main  />  
-        {/* Might render a <Footer /> here */}
       </>  
     );
   }
