@@ -17,7 +17,10 @@ export default  class Header extends Component {
             />
           <h1>iSherpa</h1>
         </Navbar.Brand>
-            <Nav.Link as={Link} to="/Profile" href='/Profile'>Profile Page</Nav.Link>
+            <Nav.Link as={Link} to="/" href='/'>Park Finder</Nav.Link>
+            <Nav.Link as={Link} to="/My-Trips" href='/My-Trips'>My Trips</Nav.Link>
+            <Nav.Link as={Link} to="/About-Us" href='/About-Us'>About Us</Nav.Link>
+            <Nav.Link as={Link} to="/Profile" href='/Profile'>Profile</Nav.Link>
         </Container>
       </Navbar>
     );

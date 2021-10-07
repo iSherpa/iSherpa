@@ -1,7 +1,8 @@
 import { Component } from "react";
+import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import SaveButton from './buttons/SaveButton'
 import Row from 'react-bootstrap/Row'
 let NP_API = process.env.REACT_APP_NP_API_URI; 
 
@@ -12,8 +13,7 @@ let NP_API = process.env.REACT_APP_NP_API_URI;
 // ^^ this is just an ecxample you can grab anything from the data that is just how you would grab the fullname for the first object.
 
 
-
-export default class NationalParks extends Component {
+class NationalParks extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,17 +46,39 @@ export default class NationalParks extends Component {
       <>
       <Row xs={1} md={1} lg={1} className="g-4">
       {this.state.parkData ? this.state.parkData.data.map((park,index) => {
+        console.log(park)
         return(
           <>
           <Card style={{ width: '100%' }} key={index}>
               <Card.Img variant="top" src={park.images[1].url} />
-              <Card.Body>
-                <Card.Title>{park.fullName}</Card.Title>
-                <Card.Text><b>{park.designation}</b></Card.Text>
+              <Card.Body >
+                <>
+                <Card.Title><b>{park.fullName}</b></Card.Title>
+                </>
+                <>
+                <Card.Text><b>Park Designation</b></Card.Text>
+                <Card.Text>{park.designation}</Card.Text>
+                </>
+                <>
+                <Card.Text><b>Park Information</b></Card.Text>
                 <Card.Text>{park.description}</Card.Text>
-                <Card.Text>Check out these Local Activities! {park.activities[0].name}</Card.Text>
+                </>
+                <>
+                <Card.Text><b>Local Activities</b></Card.Text>
+                <Card.Text>{park.activities[0].name}</Card.Text>
+                <Card.Text>{park.activities[1].name}</Card.Text>
+                <Card.Text>{park.activities[2].name}</Card.Text>
+                </>
+                <>
+                <Card.Text><b>Directions</b></Card.Text>
                 <Card.Text>{park.directionsInfo}</Card.Text>
-                <Button variant="primary">This will be the "Save" Button</Button>
+                </>
+                <>
+                <Card.Text><b>Contacts:</b></Card.Text>
+                <Card.Text>Email: {park.contacts.emailAddresses[0].emailAddress}</Card.Text>
+                <Card.Text>Phonenumber: {park.contacts.phoneNumbers[0].phoneNumber}</Card.Text>
+                </>
+                <SaveButton parkData={park}/>
               </Card.Body>
             </Card>
             </>
@@ -71,6 +93,6 @@ export default class NationalParks extends Component {
     );
   }  
 }
-      
+export default withAuth0(NationalParks) 
 /* {this.state.parkData ? <Image src={this.state.parkData.data[0].images[0].url} alt={this.state.parkData.data[0].description}/> : console.log('wtf')} */
 
