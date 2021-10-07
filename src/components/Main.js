@@ -13,11 +13,10 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      parksDisplay: []
+
     };
   }
 
-  // Remove this handler when Auth0 is setup and working.
 
   render() {
     console.log(this.state);
@@ -30,9 +29,9 @@ class Main extends Component {
             {/* Main Route -> User to National Parks DB Search */}
             <Route exact path="/"> {this.props.auth0.isAuthenticated ? ( <NationalParks /> ) : ( <Login />)} </Route>
             {/* Route User to Saved Parks */}
-            <Route path="/Profile">{this.props.auth0.isAuthenticated ?( <SavedActivities /> ):( <Login />)} </Route>
+            <Route path="/My-Trips">{this.props.auth0.isAuthenticated  ? ( <SavedActivities userInfo={this.props.auth0.user} /> ):( <Login />)} </Route>
             {/* Route User to AboutUs page */}
-            <Route path="/">{this.props.auth0.isAuthenticated ? <AboutUs /> : <Login />} </Route>
+            <Route path="/About-Us">{this.props.auth0.isAuthenticated ? <AboutUs /> : <Login />} </Route>
             {/* Route to Update Books */}
             {/* <Route path="/"> {this.props.auth0.isAuthenticated ? <UpdateBooks /> : <Login />} </Route>
             {/* Route to Profile */}
