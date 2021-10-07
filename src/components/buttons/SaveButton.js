@@ -3,10 +3,16 @@ import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 let server = `${process.env.REACT_APP_API}/my-parks`;
-let serverCall = `${server}?email=${this.props.auth0.user.email}`;
+// let serverCall = this.props.auth0.isAuthenticated
+// ? `${server}?email=${this.props.auth0.user.email}`
+// : console.log('This is the Save Button Else');
 
 class SaveButton extends Component {
-	savePark = async (parkInfo) => await axios.post(serverCall, parkInfo);
+	savePark = async (parkInfo) =>
+		await axios.post(
+			`${server}?email=${this.props.auth0.user.email}`,
+			parkInfo
+		);
 
 	handleClick = () => {
 		const parkInfo = this.props.parkData;
