@@ -4,7 +4,6 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 class Header extends Component {
-
 	render() {
 		console.log(this.state);
 		return (

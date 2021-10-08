@@ -1,19 +1,16 @@
 import { Component } from 'react';
+import { Button, Modal, Card } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
 import Brian from '../images/bk.jpg';
 import Jacob from '../images/jg.jpg';
 import Valton from '../images/vj.jpg';
 import Dario from '../images/dv.jpg';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Card from 'react-bootstrap/Card';
 
 class Author {
 	constructor(name, favorites, id) {
 		this.name = name;
 		this.favorites = favorites;
 		this.id = id;
-		// this.parkImg = parkImg;
 	}
 }
 
@@ -58,7 +55,6 @@ export default class AboutUs extends Component {
 						<Modal.Title>Inspect Author:</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-						{/* <Card.Img variant="top" src={this.props.selectedAuthor.parkImg} alt={this.props.selectedAuthor.name} /> */}
 						{this.state.selectedAuthor && (
 							<Card>
 								<Card.Body>
