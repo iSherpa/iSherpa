@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
+import '../stylesheets/SavedActivities.css';
 import axios from 'axios';
 import { Card, Row } from 'react-bootstrap';
 import DeleteButton from './buttons/DeleteButton';
@@ -33,25 +34,19 @@ class SavedActivities extends Component {
 		console.log(this.state);
 		return (
 			<>
-				<Row xs={1} md={1} lg={1} className='g-4'>
+				<Row xs={1} sm={2} md={3} lg={4} className='g-4'>
 					{this.state.savedParks ? (
 						this.state.savedParks.data.map((park, index) => {
 							console.log(park);
 							return (
 								<>
-									<Card style={{ width: '30rem' }}>
+									<Card style={{ width: '25rem' }}>
 										<Card.Img variant='top' src={park.images} />
 										<Card.Body key={index}>
 											<>
 												<Card.Title>
 													<b>{park.fullName}</b>
 												</Card.Title>
-											</>
-											<>
-												<Card.Text>
-													<b>Park Designation</b>
-												</Card.Text>
-												<Card.Text>{park.designation}</Card.Text>
 											</>
 											<>
 												<Card.Text>
@@ -86,14 +81,16 @@ class SavedActivities extends Component {
 												</Card.Text>
 												<Card.Text>{park.notes}</Card.Text>
 											</>
-											<UpdateButton
-												parkData={park}
-												update={this.getNationalParks}
-											/>
-											<DeleteButton
-												parkData={park}
-												update={this.getNationalParks}
-											/>
+											<div class='saved-buttons'>
+												<UpdateButton
+													parkData={park}
+													update={this.getNationalParks}
+												/>
+												<DeleteButton
+													parkData={park}
+													update={this.getNationalParks}
+												/>
+											</div>
 										</Card.Body>
 									</Card>
 								</>

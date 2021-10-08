@@ -1,0 +1,25 @@
+/* Styling for the NAtionalParks Component */
+.row {
+	margin: 20px;
+}
+
+.g-4 {
+	--bs-gutter-y: 0rem;
+}
+
+.form-select {
+	overflow: auto;
+	padding: 5px;
+}
+.scroll-menu {
+	overflow: auto;
+	width: 200px;
+	height: 100px;
+}
+.scroll-menu form-select {
+	border: none;
+}
+
+img {
+	max-height: 350px;
+}
