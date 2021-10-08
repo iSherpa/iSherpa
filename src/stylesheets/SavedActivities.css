@@ -1,0 +1,17 @@
+/* Styling for the SavedActivities Component */
+.card {
+	padding: 25px;
+	margin: 30px;
+}
+
+.saved-buttons {
+	display: flex;
+	padding: 35px;
+}
+.btn-danger {
+	margin-left: 12px;
+}
+
+img {
+	max-height: 350px;
+}
