@@ -1,9 +1,12 @@
+import { withAuth0 } from '@auth0/auth0-react';
 import { Component } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-export default class Header extends Component {
+class Header extends Component {
+
 	render() {
+		console.log(this.state);
 		return (
 			<Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
 				<Container>
@@ -26,11 +29,12 @@ export default class Header extends Component {
 					<Nav.Link as={Link} to='/About-Us' href='/About-Us'>
 						About Us
 					</Nav.Link>
-					<Nav.Link as={Link} to='/Profile' href='/Profile'>
-						Profile
+					<Nav.Link as={Link} to='/Logout' href='/Logout'>
+						Logout
 					</Nav.Link>
 				</Container>
 			</Navbar>
 		);
 	}
 }
+export default withAuth0(Header);

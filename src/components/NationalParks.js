@@ -26,13 +26,16 @@ class NationalParks extends Component {
 			const response = await axios.get(
 				`${NP_API}?stateCode=${stateCode}&api_key=${process.env.REACT_APP_NP_API_KEY}`
 			);
-			this.setState({ parkData: response.data });
+			this.setState({
+				parkData: response.data,
+			});
 		} catch (error) {
 			console.log(error);
 		}
 	};
 	render() {
 		console.log(this.state);
+		console.log(this.props.auth0.user.name);
 		return (
 			<>
 				<Row xs={1} md={1} lg={1} className='g-4'>
