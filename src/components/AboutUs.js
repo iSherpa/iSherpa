@@ -5,6 +5,9 @@ import Brian from '../images/bk.jpg';
 import Jacob from '../images/jg.jpg';
 import Valton from '../images/vj.jpg';
 import Dario from '../images/dv.jpg';
+import '../AboutUs.css';
+
+
 
 class Author {
 	constructor(name, favorites, id) {
@@ -42,13 +45,17 @@ export default class AboutUs extends Component {
 		this.setState({ selected: false, selectedAuthor: {} });
 	};
 
+	
+
 	render() {
 		return (
 			<>
-				<Image onClick={() => this.handleShow(13)} src={Valton} roundedCircle />
-				<Image onClick={() => this.handleShow(7)} src={Jacob} roundedCircle />
-				<Image onClick={() => this.handleShow(83)} src={Dario} roundedCircle />
-				<Image onClick={() => this.handleShow(19)} src={Brian} roundedCircle />
+			<div className="lineUp">
+				<Image className="photo" onClick={() => this.handleShow(13)} src={Valton} roundedCircle />
+				<Image className="photo" onClick={() => this.handleShow(7)} src={Jacob} roundedCircle />
+				<Image className="photo" onClick={() => this.handleShow(83)} src={Dario} roundedCircle />
+				<Image className="photo" onClick={() => this.handleShow(19)} src={Brian} roundedCircle />
+				</div>
 
 				<Modal show={this.state.selected} onHide={this.handleHide}>
 					<Modal.Header closeButton>
