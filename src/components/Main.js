@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './Header';
+import Footer from './Footer';
 import NationalParks from './NationalParks';
 import SavedActivities from './SavedActivities';
 import AboutUs from './AboutUs';
@@ -10,8 +11,6 @@ import Logout from './Logout';
 
 class Main extends Component {
 	render() {
-		console.log(this.state);
-		console.log(this.props.auth0.user);
 		return (
 			<>
 				<Router>
@@ -44,7 +43,7 @@ class Main extends Component {
 							{this.props.auth0.isAuthenticated ? <Logout /> : <Login />}{' '}
 						</Route>
 					</Switch>
-					{/* <Footer /> */}
+					<Footer />
 				</Router>
 			</>
 		);

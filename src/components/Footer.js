@@ -5,7 +5,7 @@ export default class Footer extends Component {
 	render() {
 		return (
 			<Navbar bg='dark' variant='dark'>
-				<Navbar.Brand>{this.props.text}</Navbar.Brand>
+				<Navbar.Brand>iSherpa</Navbar.Brand>
 			</Navbar>
 		);
 	}

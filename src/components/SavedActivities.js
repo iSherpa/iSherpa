@@ -1,8 +1,7 @@
 import { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
+import { Card, Row } from 'react-bootstrap';
 import DeleteButton from './buttons/DeleteButton';
 import UpdateButton from './buttons/UpdateButton';
 let server = `${process.env.REACT_APP_API}/my-parks`;
@@ -40,7 +39,7 @@ class SavedActivities extends Component {
 							console.log(park);
 							return (
 								<>
-									<Card style={{ width: '100%' }}>
+									<Card style={{ width: '30rem' }}>
 										<Card.Img variant='top' src={park.images} />
 										<Card.Body key={index}>
 											<>
@@ -116,5 +115,4 @@ class SavedActivities extends Component {
 		);
 	}
 }
-
 export default withAuth0(SavedActivities);
