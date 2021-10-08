@@ -1,0 +1,22 @@
+.photo {
+  height: 300px;
+  width: 300px;
+  margin: auto;
+  border: 20px solid darkslategrey;
+
+}
+
+.photo:hover {
+  opacity: .7;
+}
+
+.lineUp {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-auto-rows: 400px;
+  align-items: center;
+  background-color: darkolivegreen;
+
+}
+
+
